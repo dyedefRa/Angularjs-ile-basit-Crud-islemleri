@@ -1,0 +1,22 @@
+.mycontainer {
+    margin: 100px 80px;
+}
+.ng-enter{
+    transition: all .5s;
+
+    opacity: 0.1;
+
+}
+.ng-enter-active{
+   
+
+    opacity: 1;
+}
+.ng-leave{
+    transition: all 0.5s;
+
+            }
+ .ng-leave-active{
+
+    opacity: 0;
+            }

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-animate.min.js"></script>
+    <script src="app.js"></script>
+   <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycont">
+
+
+
+    <div class="mycontainer ">
+        <div class="panel text-center">
+            <h2 style="color:brown">Kayıt Uygulaması</h2>
+            <!-- <p>DyedefRA 17.08.18 </p> -->
+            <hr>
+        </div>
+        <table class="table table-hover">
+
+            <thead>
+                <tr>
+                    <th>Sıra</th>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>E-mail</th>
+                    <th class="text-right">Ara:</th>
+                    <th><input class="form-control" ng-model="ara" width="20px" placeholder="İsim Ara" type="text"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>*</td>
+                    <td>
+                        <input type="text" ng-model="adi" class="form-control">
+                    </td>
+                    <td>
+                        <input ng-model="soyadi" type="text" class="form-control">
+                    </td>
+                    <td>
+                        <input ng-model="emaili" type="text" class="form-control" >
+                    </td>
+                    <td>
+                        <button ng-click="UyeEkle()" class="btn btn-success">Üye ekle</button>
+                    </td>
+                    <td>
+                        <button ng-click="Guncelle()" class="btn btn-primary">Güncelle</button>
+                    </td>
+
+
+                </tr>
+                <tr ng-repeat="veri in veriler | filter:ara">
+                    <td>{{$index+1}} </td>
+                    <td>{{veri.ad}}</td>
+                    <td>{{veri.soyad}}</td>
+                    <td>{{veri.email}}</td>
+                    <td>
+                        <button ng-click="Sil($index)" class="btn btn-danger">Sil</button>
+                    </td>
+                    <td>
+                        <button ng-click="Guncelle($index)" class="btn btn-primary">Güncelle</button>
+                    </td>
+
+                </tr>
+                <tr ng-show="ara.length>0"><td colspan="4">Şahıs bulunamadı...</td> </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+
+</html>
